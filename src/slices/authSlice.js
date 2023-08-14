@@ -7,7 +7,7 @@ const initialState = {
   error: '',
 };
 
-const signinAsync = createAsyncThunk(
+export const signinAsync = createAsyncThunk(
   'signin',
   async ({ email, password }, store) => {
     try {
@@ -21,18 +21,18 @@ const signinAsync = createAsyncThunk(
 
 //signinAsync.pending, signinAsync.fulfilled, signin.rejected
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    signOut: (state, action) => {
+    signout: (state, action) => {
       state.user = null;
       state.loading = false;
       state.error = '';
     },
   },
   extraReducers: {
-    [signinAsync.pending]: (state, ction) => {
+    [signinAsync.pending]: (state, action) => {
       state.loading = true;
       state.error = '';
     },
@@ -48,5 +48,5 @@ const authSlice = createSlice({
     },
   },
 });
-export const { signOut } = authSlice.actions;
+export const { signout } = authSlice.actions;
 export default authSlice.reducer;

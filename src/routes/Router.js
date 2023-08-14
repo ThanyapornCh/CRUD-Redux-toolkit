@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Nav from '../components/Nav';
+import AuthLayout from '../layouts/AuthLayout';
 import Products from '../pages/Products';
 import Signin from '../pages/Signin';
 import Cart from '../pages/Cart';
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <Signin />,
   },
   {
-    element: <Nav />,
+    element: <AuthLayout />,
     children: [
       {
         path: '/cart',

@@ -5,7 +5,6 @@ import { signout } from '../slices/authSlice';
 
 export default function Nav() {
   const cart = useSelector(state => state.cart);
-  const { user } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   return (

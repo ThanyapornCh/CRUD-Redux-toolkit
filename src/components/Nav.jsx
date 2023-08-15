@@ -5,7 +5,7 @@ import { signout } from '../slices/authSlice';
 
 export default function Nav() {
   const cart = useSelector(state => state.cart);
-  const { user } = useSelector(state => state.auth);
+  // const { user } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
 
@@ -16,18 +16,19 @@ export default function Nav() {
           <li className="nav-list">
             <Link to="/">Products</Link>
           </li>
-          {/* {user && (
-            <li className="nav-list">
-              <Link to="/cart">
-                Cart
-                <span className="cart-num">
-                  {cart.reduce((sum, item) => sum + item.quantity, 0)}
-                </span>
-              </Link>
-            </li>
-          )} */}
+
           <li className="nav-list">
-            <Link to="/signin">Sign in</Link>
+            <Link to="/cart">
+              Cart
+              <span className="cart-num">
+                {cart.reduce((sum, item) => sum + item.quantity, 0)}
+              </span>
+            </Link>
+          </li>
+
+          <li className="nav-list">
+            {/* <Link to="/signin">Sign in</Link> */}
+            <button onClick={() => dispatch(signout())}>Signout</button>
           </li>
         </ul>
       </div>

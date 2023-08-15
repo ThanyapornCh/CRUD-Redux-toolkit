@@ -3,14 +3,24 @@ import AuthLayout from '../layouts/AuthLayout';
 import Products from '../pages/Products';
 import Signin from '../pages/Signin';
 import Cart from '../pages/Cart';
+import RedirectIfAuthenticate from '../features/auth/RedirectIfAuthenticate';
+import ProtectedRoute from '../features/auth/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
     path: '/signin',
-    element: <Signin />,
+    element: (
+      <RedirectIfAuthenticate>
+        <Signin />
+      </RedirectIfAuthenticate>
+    ),
   },
   {
-    element: <AuthLayout />,
+    element: (
+      <ProtectedRoute>
+        <AuthLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: '/cart',

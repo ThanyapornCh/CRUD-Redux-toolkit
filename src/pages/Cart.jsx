@@ -24,12 +24,13 @@ export default function Cart() {
             <p>{item.price}</p>
             <p>{item.quantity}</p>
             <p>{item.price * item.quantity}</p>
-            <p
+            <button
+              className="button-del "
               style={{ cursor: 'pointer' }}
               onClick={() => dispatch(deleteCart(item.id))}
             >
-              X
-            </p>
+              Delete
+            </button>
           </div>
         ))
       )}

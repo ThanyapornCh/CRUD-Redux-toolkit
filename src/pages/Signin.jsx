@@ -10,24 +10,35 @@ export default function Signin() {
   const { loading, error } = useSelector(state => state.auth);
 
   return (
-    <div className="form">
-      <input
-        type="text"
-        name="username"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <button onClick={() => dispatch(signinAsync({ email, password }))}>
-        {loading ? 'Loading...' : 'Submit'}
-      </button>
+    <div className="bg">
+      <div className="form">
+        <input
+          className="input"
+          type="text"
+          name="username"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
 
-      {error && <p style={{ color: 'red', fontSize: '12px' }}>{error}</p>}
+        <input
+          className="input"
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+
+        <button
+          className="button-signin"
+          onClick={() => dispatch(signinAsync({ email, password }))}
+        >
+          {loading ? 'Loading...' : 'Submit'}
+        </button>
+
+        {error && <p style={{ color: 'red', fontSize: '12px' }}>{error}</p>}
+      </div>
     </div>
   );
 }
